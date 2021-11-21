@@ -1,0 +1,43 @@
+import java.util.Random;
+import java.io.*;
+import java.util.*;
+
+public class MyClass {
+    public static void main(String args[]) {
+     // create this array
+      String [] array = new String[10000000];
+      for(int i = 0; i < 5200000; i ++) {
+       array[i] = "A";
+      }
+      for(int j = 5200000; j < 10000000; j ++) {
+       array[j] = "B";  
+      }
+      //count how many A in 20 sample, run 100 times
+     int [] countA = new int[100];
+     
+     //pick 20 samples
+     String [] array1 = new String[20];
+     
+     for(int w = 0; w < 100; w ++){
+        int count = 0;
+        for(int q = 0; q < 20; q ++){
+            int rnd = new Random().nextInt(array.length);
+           
+            array1[q] = array[rnd];
+            if (array1[q] == "A" ){
+                count ++;
+            }
+        }
+        countA[w] = count;
+     }
+    
+     System.out.println(Arrays.toString(countA));
+     int countHowManyAIsMajority = 0;
+     for(int e = 0; e < 100; e ++){
+         if ( countA[e] > 10){
+             countHowManyAIsMajority ++;
+         }
+     }
+      System.out.println(countHowManyAIsMajority);
+    }
+}
