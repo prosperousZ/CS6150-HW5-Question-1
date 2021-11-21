@@ -34,7 +34,7 @@ public class MyClass {
      System.out.println(Arrays.toString(countA));
      int countHowManyAIsMajority = 0;
      for(int e = 0; e < 100; e ++){
-         if ( countA[e] > 50){
+         if ( countA[e] > 200){
              countHowManyAIsMajority ++;
          }
      }
